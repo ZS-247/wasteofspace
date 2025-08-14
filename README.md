@@ -17,7 +17,7 @@ sudo apt install waste
 ## From source:
 -  clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/ZS-247/wasteofspace.git
 ```
 -  navigate to the project directory:
 ```bash
