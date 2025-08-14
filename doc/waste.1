@@ -1,0 +1,67 @@
+.TH WASTE 1 "August 2025" "waste 1.0" "User Commands"
+.SH NAME
+waste \- waste space on your disk for no reason 
+.SH SYNOPSIS
+.B waste
+.I amount
+[\fB--unit\fR mb|gb]
+.SH DESCRIPTION
+The
+.B waste
+command creates a file named
+.I waste_space.bin
+filled with the byte value 1, consuming the specified amount of disk space.
+This can be useful for:
+.IP \(bu 2
+Simulating low disk space conditions.
+.IP \(bu 2
+Anal Sex??.
+.IP \(bu 2
+Wasting storage for no reason.
+.PP
+By default, the unit for
+.I amount
+is megabytes (MB), but gigabytes (GB) can be specified.
+.SH OPTIONS
+.TP
+.I amount
+The amount of space to waste (positive integer).  
+If this is zero or invalid, the program will refuse to run.
+.TP
+.B --unit mb
+Waste space in megabytes (default).
+.TP
+.B --unit gb
+Waste space in gigabytes.
+.SH EXAMPLES
+.TP
+Waste 100 megabytes:
+.EX
+$ waste 100
+.EE
+.TP
+Waste 2 gigabytes:
+.EX
+$ waste 2 --unit gb
+.EE
+.SH NOTES
+The resulting file is always named
+.I waste_space.bin
+and will be overwritten if it already exists.  
+Make sure you actually have the disk space before running this command, or be prepared for write errors.
+.SH EXIT STATUS
+.TP
+0
+Success.
+.TP
+1
+Invalid arguments.
+.TP
+>1
+Runtime error (e.g., unable to allocate memory or write to disk).
+.SH AUTHOR
+Written by Someone Who Probably Should Have Been Doing Something Else.
+.SH VERSION
+waste version 1.0
+.SH SEE ALSO
+fallocate(1), dd(1), cumsay(1)
