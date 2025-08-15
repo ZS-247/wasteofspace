@@ -1,0 +1,12 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Source: https://github.com/ZS-247/wasteofspace 
+Upstream-Name: waste
+Upstream-Contact: <preferred name and address to reach the upstream project>
+
+Files:
+ *
+Copyright:
+ 2025 Wasty McWasteface <waste@digdig.org>
+License: custom
+ This software is released under the custom license included in
+ the LICENSE file distributed with this package.

@@ -1,0 +1,10 @@
+# upstream/metadata
+# Upstream metadata for the waste package
+
+Bug-Database: https://github.com/ZS-247/wasteofspace/issues
+Bug-Submit: https://github.com/ZS-247/wasteofspace/issues/new
+Changelog: https://github.com/ZS-247/wasteofspace/blob/master/CHANGES
+Documentation: https://github.com/ZS-247/wasteofspace/wiki
+Repository-Browse: https://github.com/ZS-247/wasteofspace
+Repository: https://github.com/ZS-247/wasteofspace.git
+

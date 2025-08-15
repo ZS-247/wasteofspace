@@ -1,0 +1,26 @@
+Source: waste
+Section: utils
+Priority: optional
+Maintainer: Wasty McWasteface <waste@digdig.org>
+Rules-Requires-Root: no
+Build-Depends:
+ debhelper-compat (= 13),
+ autotools-dev,
+Standards-Version: 4.6.2
+Homepage: https://github.com/ZS-247/wasteofspace
+
+Package: waste
+Architecture: any
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+Description: waste helps you waste space efficiently and conveniently
+ This package provides the waste command, which is a tool for
+ efficiently and conveniently and wasting disk space. It allows users 
+ to waste a customizable amount of disk space by creating useless
+ files within the /tmp/ directory.
+
+ It is particularly useful for wasting large amount of time with it's
+ copious documentation and superfluous build system. Users who wish to
+ waste time in addition to their disk space may find this tool most 
+ helpful and may even consider contributing to this open source project.

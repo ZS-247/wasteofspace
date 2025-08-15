@@ -1,0 +1,5 @@
+waste (1.0.1-1) UNRELEASED; urgency=medium
+
+  * Initial release. (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+ -- Wasty McWasteface <waste@digdig.org>  Fri, 15 Aug 2025 16:06:47 +0100
