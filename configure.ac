@@ -1,4 +1,4 @@
-AC_INIT([waste], [1.0], [waste@mail.com])
+AC_INIT([waste], [1.0.1], [waste@digdig.org])
 AM_INIT_AUTOMAKE([foreign])
 AC_CONFIG_SRCDIR([src/main.c])
 AC_CONFIG_HEADERS([config.h])

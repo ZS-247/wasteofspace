@@ -7,7 +7,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "main.h"
+
+// #define DEBUG // MUST be defined before including main.h
+#include "../inc/main.h"
 
 #define MB_SIZE (1024 * 1024)
 #define GB_SIZE (1024 * MB_SIZE)
@@ -27,7 +29,37 @@ void waste_space(size_t size, int unit)
 	} else {
 		bytes_to_waste *= MB_SIZE;
 	}
-	FILE *file = fopen("waste_space.bin", "wb");
+	// Create file in the temp folder so it doesnt end up actually clogging up the disk
+	// and is deleted when the system is restarted.
+	char *temp_dir;
+	temp_dir = getenv("TMPDIR");
+	debug_print(
+		"attempting to find temp dir from environment variable TMPDIR: %s\n",
+		temp_dir ? temp_dir : "not set");
+	if (temp_dir == NULL) {
+		temp_dir = getenv("TMP");
+		debug_print(
+			"attempting to find temp dir from environment variable TMP: %s\n",
+			temp_dir ? temp_dir : "not set");
+	}
+	if (temp_dir == NULL) {
+		temp_dir = getenv("TEMP");
+		debug_print(
+			"attempting to find temp dir from environment variable TEMP: %s\n",
+			temp_dir ? temp_dir : "not set");
+	}
+	if (temp_dir == NULL) {
+		temp_dir =
+			"/tmp"; // Fallback to /tmp if no environment variable is set
+		debug_print("no temp dir found, using fallback: %s\n",
+			    temp_dir);
+	}
+
+	char file_path[MAX_PATH_LENGTH] = { 0 }; // defined as 4096 in main.h
+	snprintf(file_path, sizeof(file_path), "%s/waste_space.bin", temp_dir);
+	debug_print("Attempting to waste space in file: %s\n", file_path);
+
+	FILE *file = fopen(file_path, "wb");
 	if (file == NULL) {
 		perror("Failed to open file");
 		exit(EXIT_FAILURE);
@@ -39,7 +71,7 @@ void waste_space(size_t size, int unit)
 		fclose(file);
 		exit(EXIT_FAILURE);
 	}
-	memset(buffer, 1, chunk_size); // Fill buffer with 1s
+	memset(buffer, 1, chunk_size);
 	while (bytes_to_waste > 0) {
 		size_t bytes_to_write = (bytes_to_waste < chunk_size) ?
 						bytes_to_waste :
@@ -56,6 +88,11 @@ void waste_space(size_t size, int unit)
 }
 int main(int argc, char *argv[])
 {
+	debug_print(
+		"Looks like we were compiled in debug mode. To remove debug messages, recompile without the DEBUG macro defined.\n");
+	debug_print("wasteofspace version: %s\n", VERSION);
+	debug_print("wasteofspace started with %d arguments\n", argc);
+
 	if (argc < 2 || argc > 4) {
 		print_usage();
 		return 1;
