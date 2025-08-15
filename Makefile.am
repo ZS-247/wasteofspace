@@ -1,2 +1,2 @@
 SUBDIRS = src doc
-EXTRA_DIST = inc README.md
+EXTRA_DIST = inc README.md LICENSE .clang-format
