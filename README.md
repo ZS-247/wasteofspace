@@ -42,7 +42,32 @@ cd wasteofspace
 ```bash
 # On a debian based system like ubuntu or mint that uses apt:
 sudo apt install make gcc
-# Your distribution may use a different package manager
+# On an arch based system:
+sudo pacman -S make gcc
+# On an opensuse based system:
+sudo zypper install make gcc
+# On a fedora based system:
+sudo dnf install make gcc
+# On a void based system:
+sudo xbps-install make gcc
+
+# freebsd should work out of the box, if not do:
+sudo pkg install gmake gcc
+# openbsd should also work out of the box, if not do:
+doas pkg_add gmake gcc
+
+# On a mac system the below should be sufficient:
+xcode-select --install
+# If not for macports do:
+sudo port install gmake gcc15
+sudo port select --set gcc mp-gcc15
+# for homebrew do:
+sudo brew install make gcc
+
+# On a haiku system do:
+pkgman install make gcc
+
+# Your operating system may use a different package manager
 ```
 - Build the project:
 ```bash
